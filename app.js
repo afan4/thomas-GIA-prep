@@ -379,6 +379,12 @@ function showResults(){
     document.getElementById("resultsPage")
         .classList.remove("hidden");
 
+    // Show bottom banner on results page
+    const footer = document.querySelector('.mozilla-footer');
+    if (footer) {
+        footer.classList.remove("hidden");
+    }
+
     const resultsDiv =
         document.getElementById("results");
 
@@ -439,6 +445,12 @@ function hideAllPages(){
 
     document.getElementById("resultsPage")
         .classList.add("hidden");
+
+    // Hide bottom banner by default on info & question pages
+    const footer = document.querySelector('.mozilla-footer');
+    if (footer) {
+        footer.classList.add("hidden");
+    }
 }
 
 function shuffle(array){
