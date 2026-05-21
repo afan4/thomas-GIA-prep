@@ -1,5 +1,75 @@
 /* style.css */
+/* HOME EXTRAS */
 
+.home-features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-bottom:40px;
+}
+
+.feature-card{
+    background:#f4f4f4;
+    padding:24px;
+    border-radius:6px;
+}
+
+.feature-card h3{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.feature-card p{
+    color:#555;
+    line-height:1.5;
+    font-size:15px;
+}
+
+.home-note{
+    margin-top:35px;
+    text-align:center;
+}
+
+.badge-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.badge{
+    background:#ece8e2;
+    padding:10px 16px;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.tiny-text{
+    color:#777;
+    font-size:14px;
+}
+
+.footer{
+    margin-top:45px;
+    padding-top:25px;
+    border-top:1px solid #e4e4e4;
+    text-align:center;
+}
+
+.footer-name{
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.footer-text{
+    color:#777;
+    font-size:13px;
+    line-height:1.5;
+}
 *{
     margin:0;
     padding:0;
