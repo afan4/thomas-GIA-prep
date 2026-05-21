@@ -1,0 +1,169 @@
+[
+    {
+        "name": "Reasoning",
+        "type": "reasoning",
+        "info": "Compare people and identify who is stronger, taller, lighter etc.",
+        "time": 60,
+        "questions": [
+            {
+                "statement": "Sarah is faster than Mike.",
+                "question": "Who is slower?",
+                "options": ["Sarah", "Mike"],
+                "answer": "Mike"
+            },
+            {
+                "statement": "Kevin is not as bright as Leo.",
+                "question": "Who is duller?",
+                "options": ["Kevin", "Leo"],
+                "answer": "Kevin"
+            },
+            {
+                "statement": "The red box is lighter than the blue box.",
+                "question": "Which is heavier?",
+                "options": ["Red box", "Blue box"],
+                "answer": "Blue box"
+            },
+            {
+                "statement": "James is shorter than Paul.",
+                "question": "Who is taller?",
+                "options": ["James", "Paul"],
+                "answer": "Paul"
+            }
+        ]
+    },
+    {
+        "name": "Perceptual Speed",
+        "type": "perceptual",
+        "info": "Count how many letter pairs are identical (case-insensitive).",
+        "time": 60,
+        "questions": [
+            {
+                "pairs": [
+                    ["K", "k"],
+                    ["L", "m"],
+                    ["O", "o"],
+                    ["P", "p"]
+                ],
+                "answer": "3"
+            },
+            {
+                "pairs": [
+                    ["r", "R"],
+                    ["s", "z"],
+                    ["T", "t"],
+                    ["V", "u"]
+                ],
+                "answer": "2"
+            },
+            {
+                "pairs": [
+                    ["E", "e"],
+                    ["F", "f"],
+                    ["G", "g"],
+                    ["H", "h"]
+                ],
+                "answer": "4"
+            },
+            {
+                "pairs": [
+                    ["x", "y"],
+                    ["A", "b"],
+                    ["Q", "p"],
+                    ["m", "n"]
+                ],
+                "answer": "0"
+            }
+        ]
+    },
+    {
+        "name": "Number Speed & Accuracy",
+        "type": "numbers",
+        "info": "Identify which number (highest or lowest) is furthest from the remaining number.",
+        "time": 60,
+        "questions": [
+            {
+                "question": "Select the correct answer",
+                "numbers": [2, 9, 6],
+                "answer": "2"
+            },
+            {
+                "question": "Select the correct answer",
+                "numbers": [15, 10, 12],
+                "answer": "15"
+            },
+            {
+                "question": "Select the correct answer",
+                "numbers": [20, 25, 23],
+                "answer": "20"
+            },
+            {
+                "question": "Select the correct answer",
+                "numbers": [4, 1, 5],
+                "answer": "1"
+            }
+        ]
+    },
+    {
+        "name": "Word Meaning",
+        "type": "words",
+        "info": "Find the odd word out.",
+        "time": 60,
+        "questions": [
+            {
+                "question": "Which word is the odd one out?",
+                "words": ["Begin", "Start", "Table"],
+                "answer": "Table"
+            },
+            {
+                "question": "Which word is the odd one out?",
+                "words": ["Large", "Small", "Green"],
+                "answer": "Green"
+            },
+            {
+                "question": "Which word is the odd one out?",
+                "words": ["Halt", "Stop", "Walk"],
+                "answer": "Walk"
+            },
+            {
+                "question": "Which word is the odd one out?",
+                "words": ["Happy", "Sad", "Blue"],
+                "answer": "Blue"
+            }
+        ]
+    },
+    {
+        "name": "Spatial Visualisation",
+        "type": "spatial",
+        "info": "Count how many symbols are identical after rotation (mirror images are not identical).",
+        "time": 60,
+        "questions": [
+            {
+                "pairs": [
+                    ["R", "R"],
+                    ["F", "F"],
+                    ["L", "⅃"],
+                    ["P", "P"]
+                ],
+                "answer": "3"
+            },
+            {
+                "pairs": [
+                    ["N", "И"],
+                    ["E", "Ǝ"],
+                    ["B", "B"],
+                    ["K", "K"]
+                ],
+                "answer": "2"
+            },
+            {
+                "pairs": [
+                    ["M", "M"],
+                    ["W", "W"],
+                    ["T", "T"],
+                    ["V", "V"]
+                ],
+                "answer": "4"
+            }
+        ]
+    }
+]
