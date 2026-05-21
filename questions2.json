@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Reasoning",
+        "type": "reasoning",
+        "info": "Compare people and identify specific traits based on statements.",
+        "time": 120,
+        "questions": [
+            { "statement": "Mark is taller than Steve.", "question": "Who is shorter?", "options": ["Mark", "Steve"], "answer": "Steve" },
+            { "statement": "Clare is faster than Alice.", "question": "Who is slower?", "options": ["Clare", "Alice"], "answer": "Alice" },
+            { "statement": "The cat is smaller than the dog.", "question": "Which is larger?", "options": ["The cat", "The dog"], "answer": "The dog" },
+            { "statement": "Dave is not as old as Chris.", "question": "Who is older?", "options": ["Dave", "Chris"], "answer": "Chris" },
+            { "statement": "The car is more expensive than the bike.", "question": "Which is cheaper?", "options": ["The car", "The bike"], "answer": "The bike" },
+            { "statement": "Lisa is not as strong as Karen.", "question": "Who is weaker?", "options": ["Lisa", "Karen"], "answer": "Lisa" },
+            { "statement": "Building A is higher than Building B.", "question": "Which is lower?", "options": ["Building A", "Building B"], "answer": "Building B" },
+            { "statement": "The blue team is not as successful as the red team.", "question": "Who is more successful?", "options": ["The blue team", "The red team"], "answer": "The red team" }
+        ]
+    },
+    {
+        "name": "Perceptual Speed",
+        "type": "perceptual",
+        "info": "Count how many letter pairs are identical (case-insensitive).",
+        "time": 120,
+        "questions": [
+            { "pairs": [["R", "r"], ["T", "y"], ["M", "m"], ["S", "s"]], "answer": "3" },
+            { "pairs": [["A", "a"], ["B", "b"], ["C", "c"], ["D", "d"]], "answer": "4" },
+            { "pairs": [["f", "f"], ["G", "j"], ["k", "K"], ["L", "i"]], "answer": "2" },
+            { "pairs": [["Q", "p"], ["W", "m"], ["X", "x"], ["O", "c"]], "answer": "1" },
+            { "pairs": [["v", "V"], ["n", "N"], ["z", "Z"], ["H", "h"]], "answer": "4" },
+            { "pairs": [["e", "u"], ["p", "d"], ["b", "q"], ["m", "w"]], "answer": "0" },
+            { "pairs": [["Y", "y"], ["I", "l"], ["U", "u"], ["J", "j"]], "answer": "3" },
+            { "pairs": [["T", "t"], ["S", "s"], ["A", "e"], ["K", "k"]], "answer": "3" }
+        ]
+    },
+    {
+        "name": "Number Speed & Accuracy",
+        "type": "numbers",
+        "info": "Identify which number (highest or lowest) is furthest from the remaining number.",
+        "time": 120,
+        "questions": [
+            { "numbers": [3, 10, 8], "answer": "3" },
+            { "numbers": [12, 17, 14], "answer": "17" },
+            { "numbers": [5, 1, 4], "answer": "1" },
+            { "numbers": [21, 28, 26], "answer": "21" },
+            { "numbers": [9, 15, 11], "answer": "15" },
+            { "numbers": [7, 2, 6], "answer": "2" },
+            { "numbers": [30, 39, 32], "answer": "39" },
+            { "numbers": [18, 12, 16], "answer": "12" }
+        ]
+    },
+    {
+        "name": "Word Meaning",
+        "type": "words",
+        "info": "Find the odd word out.",
+        "time": 120,
+        "questions": [
+            { "words": ["Big", "Large", "Red"], "answer": "Red" },
+            { "words": ["Fast", "Quick", "Cold"], "answer": "Cold" },
+            { "words": ["Above", "Below", "Tree"], "answer": "Tree" },
+            { "words": ["Hard", "Soft", "Blue"], "answer": "Blue" },
+            { "words": ["Run", "Sprint", "Sit"], "answer": "Sit" },
+            { "words": ["Happy", "Joyful", "Green"], "answer": "Green" },
+            { "words": ["Rich", "Wealthy", "Tall"], "answer": "Tall" },
+            { "words": ["Light", "Dark", "Water"], "answer": "Water" }
+        ]
+    },
+    {
+        "name": "Spatial Visualisation",
+        "type": "spatial",
+        "info": "Count how many pairs are identical after rotation (mirror images do not count).",
+        "time": 120,
+        "questions": [
+            { "pairs": [["F", "F"], ["L", "L"], ["P", "P"], ["R", "Я"]], "answer": "3" },
+            { "pairs": [["N", "N"], ["E", "Ǝ"], ["K", "K"], ["Z", "Z"]], "answer": "3" },
+            { "pairs": [["R", "R"], ["G", "G"], ["Q", "Q"], ["B", "B"]], "answer": "4" },
+            { "pairs": [["J", "L"], ["S", "Ƨ"], ["F", "ꟻ"], ["P", "q"]], "answer": "0" },
+            { "pairs": [["M", "W"], ["N", "N"], ["H", "H"], ["I", "I"]], "answer": "3" },
+            { "pairs": [["L", "⅃"], ["F", "F"], ["E", "E"], ["T", "T"]], "answer": "3" },
+            { "pairs": [["P", "P"], ["K", "K"], ["R", "R"], ["G", "G"]], "answer": "4" },
+            { "pairs": [["D", "ᗡ"], ["B", "B"], ["C", "C"], ["R", "Я"]], "answer": "2" }
+        ]
+    }
+]
