@@ -1,0 +1,88 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Thomas GIA Practice</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<div class="container">
+
+    <!-- HOME -->
+    <div id="home">
+
+        <h1 class="title">
+            Thomas GIA Practice
+        </h1>
+
+        <p class="subtitle">
+            Practice all 5 sections with timers and analytics.
+        </p>
+
+        <button class="btn" onclick="safeStartTest()">
+            Start Test
+        </button>
+
+    </div>
+
+    <!-- INFO PAGE -->
+    <div id="infoPage" class="hidden">
+
+        <h1 class="title" id="sectionTitle"></h1>
+
+        <div class="info-box" id="infoText"></div>
+
+        <button class="btn" onclick="startQuestions()">
+            Continue
+        </button>
+
+    </div>
+
+    <!-- QUESTION PAGE -->
+    <div id="questionPage" class="hidden">
+
+        <div class="top-bar">
+
+            <div id="progress"></div>
+
+            <div id="timer"></div>
+
+        </div>
+
+        <div id="question"></div>
+
+        <div id="content"></div>
+
+    </div>
+
+    <!-- RESULTS -->
+    <div id="resultsPage" class="hidden">
+
+        <h1 class="title">
+            Results
+        </h1>
+
+        <div id="results"></div>
+
+        <button class="btn" onclick="location.reload()">
+            Restart
+        </button>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
