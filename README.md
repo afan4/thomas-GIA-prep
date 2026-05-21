@@ -7,7 +7,7 @@ Built using:
 - CSS
 - Vanilla JavaScript
 - JSON question bank
-
+![alt text](image-2.png)
 ---
 
 ## Features
@@ -27,7 +27,7 @@ Built using:
 - Unlimited question support via JSON
 - Shuffle support
 - Mobile friendly
-
+![alt text](image-1.png)
 ---
 
 ## Project Structure
