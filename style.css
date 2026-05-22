@@ -229,6 +229,31 @@ body{
     font-weight:bold;
 }
 
+/* SELECTION PAGE */
+.selection-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.select-btn {
+    width: 100% !important;
+}
+
+.select-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.spatial-text {
+    font-size: 80px !important;
+    font-weight: 900 !important;
+    line-height: 1.2;
+}
+
 .result-card{
     background:#f4f4f4;
     padding:25px;

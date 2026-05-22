@@ -134,6 +134,50 @@ function generatePerceptualSpeedSection() {
     };
 }
 
+// Generates a single spatial visualization question: 4 vertical pairs in separate columns
+function generateSingleSpatialQuestion() {
+    const chars = "FGLPR"; // Asymmetric letters
+    const rotations = [0, 90, 180, 270];
+    const pairs = [];
+    let matchesCount = 0;
+
+    for (let i = 0; i < 4; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        const rot1 = rotations[Math.floor(Math.random() * rotations.length)];
+        const rot2 = rotations[Math.floor(Math.random() * rotations.length)];
+        const isFlipped = Math.random() < 0.5;
+
+        if (!isFlipped) matchesCount++;
+
+        pairs.push({
+            char: char,
+            rot1: rot1,
+            rot2: rot2,
+            isFlipped: isFlipped
+        });
+    }
+
+    return {
+        pairs: pairs,
+        answer: String(matchesCount)
+    };
+}
+
+function generateSpatialSection() {
+    const questions = [];
+    for (let i = 0; i < 15; i++) {
+        questions.push(generateSingleSpatialQuestion());
+    }
+
+    return {
+        name: "Spatial Visualisation",
+        info: "Identify how many pairs contain identical shapes (rotations are allowed, but mirrored images are not).",
+        type: "spatial",
+        time: 60,
+        questions: questions
+    };
+}
+
 async function loadQuestions(){
     try {
         const numSection = generateNumericalAbilitySection();
@@ -171,12 +215,21 @@ function startTest(){
 
     hideAllPages();
 
-    document.getElementById("home")
+    document.getElementById("selectionPage")
         .classList.remove("hidden");
+}
 
-    document.getElementById("home")
-        .classList.add("hidden");
+function startSpecificTest(type) {
+    hideAllPages();
+    currentSection = 0;
+    results = []; // Reset results for new test
 
+    let section;
+    if (type === 'numbers') section = generateNumericalAbilitySection();
+    else if (type === 'perceptual') section = generatePerceptualSpeedSection();
+    else if (type === 'spatial') section = generateSpatialSection();
+    
+    sections = [section];
     showInfoPage();
 }
 
@@ -388,18 +441,38 @@ function renderQuestion(){
     else if(section.type === "spatial"){
 
         const grid = document.createElement("div");
-
         grid.className = "grid";
 
-        q.pairs.forEach(pair=>{
+        q.pairs.forEach(p=>{
 
             const div = document.createElement("div");
-
             div.className = "pair";
+            
+            // Vertical stacking and large spacing
+            div.style.display = "flex";
+            div.style.flexDirection = "column";
+            div.style.alignItems = "center";
+            div.style.gap = "40px";
+            div.style.padding = "45px 20px";
 
-            div.innerHTML =
-                `${pair[0]}<br><br>${pair[1]}`;
+            const top = document.createElement("div");
+            top.className = "spatial-text";
+            top.innerText = p.char || p[0]; // Fallback to old format if needed
+            top.style.transform = p.rot1 !== undefined ? `rotate(${p.rot1}deg)` : "";
 
+            const bottom = document.createElement("div");
+            bottom.className = "spatial-text";
+            bottom.innerText = p.char || p[1];
+            
+            if (p.isFlipped !== undefined) {
+                const mirror = p.isFlipped ? "scaleX(-1)" : "";
+                bottom.style.transform = `${mirror} rotate(${p.rot2}deg)`;
+            } else {
+                bottom.style.transform = "";
+            }
+
+            div.appendChild(top);
+            div.appendChild(bottom);
             grid.appendChild(div);
         });
 
@@ -585,6 +658,9 @@ function showResults(){
 function hideAllPages(){
 
     resetTimeWarning();
+
+    document.getElementById("selectionPage")
+        .classList.add("hidden");
 
     document.getElementById("home")
         .classList.add("hidden");
