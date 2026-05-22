@@ -77,11 +77,70 @@ function generateNumericalAbilitySection() {
     };
 }
 
+// Generates a single perceptual speed question: 8 pairs (2 rows x 4 columns)
+function generateSinglePerceptualQuestion() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const pairs = [];
+    let matchesCount = 0;
+
+    // At least 75% of questions should have at least 1 matching pair
+    const forceMatch = Math.random() < 0.75;
+
+    for (let i = 0; i < 8; i++) {
+        const char1 = chars[Math.floor(Math.random() * chars.length)];
+        let char2;
+
+        // Force a match on the first pair if needed
+        if (forceMatch && matchesCount === 0 && i === 7) {
+            char2 = char1;
+        } else {
+            // General matching chance (e.g., 25% for each pair)
+            if (Math.random() < 0.25) {
+                char2 = char1;
+            } else {
+                do {
+                    char2 = chars[Math.floor(Math.random() * chars.length)];
+                } while (char2 === char1);
+            }
+        }
+
+        if (char1 === char2) matchesCount++;
+
+        // Randomize case for each letter to make it Thomas GIA style (case-insensitive matching)
+        const p1 = Math.random() < 0.5 ? char1.toUpperCase() : char1.toLowerCase();
+        const p2 = Math.random() < 0.5 ? char2.toUpperCase() : char2.toLowerCase();
+        pairs.push([p1, p2]);
+    }
+
+    return {
+        pairs: pairs,
+        answer: String(matchesCount)
+    };
+}
+
+// Packages perceptual speed questions into a section
+function generatePerceptualSpeedSection() {
+    const questions = [];
+    for (let i = 0; i < 15; i++) {
+        questions.push(generateSinglePerceptualQuestion());
+    }
+
+    return {
+        name: "Perceptual Speed",
+        info: "Identify how many pairs contain the same letter (regardless of case).",
+        type: "perceptual",
+        time: 60,
+        questions: questions
+    };
+}
+
 async function loadQuestions(){
     try {
-        // Generates questions programmatically instead of fetching questions2.json
         const numSection = generateNumericalAbilitySection();
-        sections = [numSection];
+        const perSection = generatePerceptualSpeedSection();
+        
+        // Combine all generated sections
+        sections = [numSection, perSection];
 
         shuffleSections();
         console.log("Successfully generated test structure:", sections);
