@@ -677,3 +677,47 @@ body{
         margin-bottom: 8px;
     }
 }
+
+/* NEW INDICATORS */
+.time-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    display: flex;
+    gap: 3px;
+    z-index: 100;
+}
+
+.time-warning .segment {
+    flex: 1;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+/* Color States */
+.time-warning.green .active { background: #4caf50; }
+.time-warning.yellow .active { background: #ffc107; }
+.time-warning.red .active { background: #f44336; }
+
+#indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+    min-height: 12px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    background: #4caf50;
+    border-radius: 50%;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
