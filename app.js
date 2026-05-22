@@ -497,6 +497,7 @@ let sectionStartTime = 0;
 let reasoningPhase = "statement";
 
 let locked = false;
+let currentQuestionStartTime = 0;
 
 // Generates a single math question: 3 numbers under 100, close to each other, no ties
 function generateSingleNumbersQuestion() {
@@ -630,6 +631,8 @@ function startQuestions(){
 
     sectionStartTime = performance.now();
 
+    document.getElementById("indicators").innerHTML = "";
+
     startTimer();
 
     renderQuestion();
@@ -656,7 +659,37 @@ function startTimer(){
             nextSection();
         }
 
+        checkQuestionTime();
+
     },1000);
+}
+
+function checkQuestionTime() {
+    const elapsed = (performance.now() - currentQuestionStartTime) / 1000;
+    const warning = document.getElementById("timeWarning");
+    const segments = warning.querySelectorAll(".segment");
+
+    // Color logic: 0-3 green, 3-5 yellow, >5 red
+    warning.classList.remove("green", "yellow", "red");
+    if (elapsed >= 5) {
+        warning.classList.add("red");
+    } else if (elapsed >= 3) {
+        warning.classList.add("yellow");
+    } else {
+        warning.classList.add("green");
+    }
+
+    // Progress: Fill 1 segment per second up to 5
+    const animatedSegments = Math.min(5, Math.ceil(elapsed));
+    segments.forEach((seg, index) => {
+        if (index < animatedSegments) {
+            seg.classList.add("active");
+        } else {
+            seg.classList.remove("active");
+        }
+    });
+
+    // If over 5 seconds, ensure all are active + red (already handled by animatedSegments and color logic)
 }
 
 function updateTimer(){
@@ -677,6 +710,9 @@ function renderQuestion(){
         document.getElementById("content");
 
     content.innerHTML = "";
+
+    currentQuestionStartTime = performance.now();
+    resetTimeWarning();
 
     document.getElementById("progress")
         .innerText =
@@ -858,6 +894,7 @@ function submitAnswer(selected, correct){
     if(selected == correct){
 
         results[currentSection].correct++;
+        addGreenDot();
     }
 
     reasoningPhase = "statement";
@@ -969,6 +1006,8 @@ function showResults(){
 
 function hideAllPages(){
 
+    resetTimeWarning();
+
     document.getElementById("home")
         .classList.add("hidden");
 
@@ -1011,3 +1050,16 @@ function shuffleSections(){
 }
 
 loadQuestions();
+
+function addGreenDot() {
+    const dot = document.createElement("div");
+    dot.className = "indicator-dot";
+    document.getElementById("indicators").appendChild(dot);
+}
+
+function resetTimeWarning() {
+    const warning = document.getElementById("timeWarning");
+    if (!warning) return;
+    warning.classList.remove("green", "yellow", "red");
+    warning.querySelectorAll(".segment").forEach(seg => seg.classList.remove("active"));
+}
